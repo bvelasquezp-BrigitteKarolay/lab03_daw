@@ -1,98 +1,117 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Agenda Personal</title>
-    <link rel="stylesheet" href="/lab03/pub/css/style.css" />
-    <script defer src="/lab03/pub/js/agenda.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Agenda Personal</title>
+  <link rel="stylesheet" href="/lab03/pub/css/style.css"/>
+  <script defer src="/lab03/pub/js/agenda.js"></script>
 </head>
 <body>
-    <div class="page">
-        <header class="top-card">
-        <div class="brand">
-            <img src="/lab03/pub/img/logo.png" alt="Logo" class="brand-logo" />
-            <div class="brand-text">
-            <h1>Agenda Personal</h1>
-            <p>Sistema de administración de eventos</p>
-            </div>
+  <div class="pagina">
+    
+    <!-- ENCABEZADO -->
+    <header class="tarjeta-superior">
+      <div class="marca">
+        <img src="/lab03/pub/img/logo.png" alt="Logo" class="logo-marca"/>
+        <div class="texto-marca">
+          <h1>Agenda Personal</h1>
+          <p>Sistema de administración de eventos</p>
         </div>
-        </header>
+      </div>
+    </header>
 
-        <main class="layout">
-        <aside class="left-col">
-            <section class="card form-card">
-            <h2 class="section-title section-title-form">
-                <span class="title-mark title-mark-blue"></span>
-                Editar Evento
-            </h2>
+    <!-- ESTRUCTURA PRINCIPAL -->
+    <main class="estructura">
+      
+      <!-- COLUMNA IZQUIERDA -->
+      <aside class="columna-izquierda">
+        
+        <!-- FORMULARIO -->
+        <section class="tarjeta tarjeta-formulario">
+          <h2 class="titulo-seccion">
+            <span class="marca-titulo azul"></span>
+            Editar Evento
+          </h2>
 
-            <form id="eventForm" autocomplete="off">
-                <div class="field">
-                <label for="eventDate">Fecha</label>
-                <input type="date" id="eventDate" />
-                </div>
-
-                <div class="field">
-                <label for="eventTime">Hora</label>
-                <input type="time" id="eventTime" />
-                </div>
-
-                <div class="field">
-                <label for="eventDescription">Descripción</label>
-                <textarea id="eventDescription" rows="5" placeholder="Escribe aquí ..."></textarea>
-                </div>
-
-                <div class="actions">
-                <button type="submit" class="btn btn-primary">Actualizar</button>
-                <button type="button" id="cancelBtn" class="btn btn-secondary">Cancelar</button>
-                </div>
-            </form>
-            </section>
-
-            <section class="card view-card">
-            <h2 class="section-title">
-                <span class="title-mark title-mark-gray"></span>
-                Vista
-            </h2>
-
-            <div class="view-toggle">
-                <button type="button" class="view-btn active" data-view="lista">Lista</button>
-                <button type="button" class="view-btn" data-view="estructura">Estructura</button>
+          <form id="formularioEvento" autocomplete="off">
+            
+            <div class="campo">
+              <label for="inputFecha">Fecha</label>
+              <input type="date" id="inputFecha"/>
             </div>
-            </section>
-        </aside>
 
-        <section class="right-col">
-            <section class="card schedule-card">
-            <h2 class="section-title">
-                <span class="title-mark title-mark-orange"></span>
-                Eventos Programados
-            </h2>
-
-            <div id="eventsContainer" class="events-container"></div>
-            </section>
-
-            <section class="card stats-card">
-            <h2 class="section-title">
-                <span class="title-mark title-mark-green"></span>
-                Estadísticas
-            </h2>
-
-            <div class="stats-grid">
-                <div class="stat-box stat-blue">
-                <span class="stat-label">Total Eventos</span>
-                <strong id="totalEvents">0</strong>
-                </div>
-
-                <div class="stat-box stat-green">
-                <span class="stat-label">Fechas Únicas</span>
-                <strong id="uniqueDates">0</strong>
-                </div>
+            <div class="campo">
+              <label for="inputHora">Hora</label>
+              <input type="time" id="inputHora"/>
             </div>
-            </section>
+
+            <div class="campo">
+              <label for="inputDescripcion">Descripción</label>
+              <textarea id="inputDescripcion" rows="5" placeholder="Escribe aquí..."></textarea>
+            </div>
+
+            <div class="acciones">
+              <button type="submit" class="boton boton-primario">Actualizar</button>
+              <button type="button" id="botonCancelar" class="boton boton-secundario">Cancelar</button>
+            </div>
+
+          </form>
         </section>
-        </main>
-    </div>
+
+        <!-- VISTA -->
+        <section class="tarjeta tarjeta-vista">
+          <h2 class="titulo-seccion">
+            <span class="marca-titulo gris"></span>
+            Vista
+          </h2>
+
+          <div class="selector-vista">
+            <button type="button" class="boton-vista activo" data-view="lista">Lista</button>
+            <button type="button" class="boton-vista" data-view="estructura">Estructura</button>
+          </div>
+        </section>
+
+      </aside>
+
+      <!-- COLUMNA DERECHA -->
+      <section class="columna-derecha">
+
+        <!-- EVENTOS -->
+        <section class="tarjeta tarjeta-eventos">
+          <h2 class="titulo-seccion">
+            <span class="marca-titulo naranja"></span>
+            Eventos Programados
+          </h2>
+
+          <div id="contenedorEventos" class="contenedor-eventos"></div>
+        </section>
+
+        <!-- ESTADÍSTICAS -->
+        <section class="tarjeta tarjeta-estadisticas">
+          <h2 class="titulo-seccion">
+            <span class="marca-titulo verde"></span>
+            Estadísticas
+          </h2>
+
+          <div class="cuadricula-estadisticas">
+            
+            <div class="caja-estadistica azul">
+              <span class="etiqueta-estadistica">Total Eventos</span>
+              <strong id="totalEventos">0</strong>
+            </div>
+
+            <div class="caja-estadistica verde">
+              <span class="etiqueta-estadistica">Fechas Únicas</span>
+              <strong id="fechasUnicas">0</strong>
+            </div>
+
+          </div>
+        </section>
+
+      </section>
+
+    </main>
+  </div>
 </body>
 </html>
