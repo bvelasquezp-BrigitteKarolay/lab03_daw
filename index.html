@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agenda Personal</title>
+    <link rel="stylesheet" href="/lab03/pub/css/style.css" />
+    <script defer src="/lab03/pub/js/agenda.js"></script>
+</head>
+<body>
+    <div class="page">
+        <header class="top-card">
+        <div class="brand">
+            <img src="/lab03/pub/img/logo.png" alt="Logo" class="brand-logo" />
+            <div class="brand-text">
+            <h1>Agenda Personal</h1>
+            <p>Sistema de administración de eventos</p>
+            </div>
+        </div>
+        </header>
+
+        <main class="layout">
+        <aside class="left-col">
+            <section class="card form-card">
+            <h2 class="section-title section-title-form">
+                <span class="title-mark title-mark-blue"></span>
+                Editar Evento
+            </h2>
+
+            <form id="eventForm" autocomplete="off">
+                <div class="field">
+                <label for="eventDate">Fecha</label>
+                <input type="date" id="eventDate" />
+                </div>
+
+                <div class="field">
+                <label for="eventTime">Hora</label>
+                <input type="time" id="eventTime" />
+                </div>
+
+                <div class="field">
+                <label for="eventDescription">Descripción</label>
+                <textarea id="eventDescription" rows="5" placeholder="Escribe aquí ..."></textarea>
+                </div>
+
+                <div class="actions">
+                <button type="submit" class="btn btn-primary">Actualizar</button>
+                <button type="button" id="cancelBtn" class="btn btn-secondary">Cancelar</button>
+                </div>
+            </form>
+            </section>
+
+            <section class="card view-card">
+            <h2 class="section-title">
+                <span class="title-mark title-mark-gray"></span>
+                Vista
+            </h2>
+
+            <div class="view-toggle">
+                <button type="button" class="view-btn active" data-view="lista">Lista</button>
+                <button type="button" class="view-btn" data-view="estructura">Estructura</button>
+            </div>
+            </section>
+        </aside>
+
+        <section class="right-col">
+            <section class="card schedule-card">
+            <h2 class="section-title">
+                <span class="title-mark title-mark-orange"></span>
+                Eventos Programados
+            </h2>
+
+            <div id="eventsContainer" class="events-container"></div>
+            </section>
+
+            <section class="card stats-card">
+            <h2 class="section-title">
+                <span class="title-mark title-mark-green"></span>
+                Estadísticas
+            </h2>
+
+            <div class="stats-grid">
+                <div class="stat-box stat-blue">
+                <span class="stat-label">Total Eventos</span>
+                <strong id="totalEvents">0</strong>
+                </div>
+
+                <div class="stat-box stat-green">
+                <span class="stat-label">Fechas Únicas</span>
+                <strong id="uniqueDates">0</strong>
+                </div>
+            </div>
+            </section>
+        </section>
+        </main>
+    </div>
+</body>
+</html>
